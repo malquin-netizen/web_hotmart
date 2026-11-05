@@ -1,18 +1,23 @@
 name: Hotmart
 
-on:
+'on':
   workflow_dispatch:
 
 jobs:
   ejecutar:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - run: pip install -r requirements.txt
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
 
-      - run: python app.py
+      - name: Ejecutar aplicación
+        run: python app.py
