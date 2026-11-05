@@ -1,5 +1,4 @@
-```yaml
-name: Ejecutar aplicación Hotmart
+name: Hotmart
 
 on:
   workflow_dispatch:
@@ -8,17 +7,12 @@ jobs:
   ejecutar:
     runs-on: ubuntu-latest
     steps:
-      - name: Descargar repositorio
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Configurar Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Instalar dependencias
-        run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt
 
-      - name: Ejecutar aplicación
-        run: python app.py
-```
+      - run: python app.py
